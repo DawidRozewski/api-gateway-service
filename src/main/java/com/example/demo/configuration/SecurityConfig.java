@@ -18,7 +18,6 @@ public class SecurityConfig {
                         .pathMatchers("/consumer/messages").permitAll()
                         .pathMatchers("/producer/send").permitAll()
                         .anyExchange().authenticated())
-                .anonymous(Customizer.withDefaults())
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()))
                 .csrf(ServerHttpSecurity.CsrfSpec::disable);
 
